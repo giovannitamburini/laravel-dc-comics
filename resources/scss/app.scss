@@ -80,14 +80,14 @@ main {
     background-color: #1c1c1c;
     text-transform: uppercase;
 
-    #container-comics {
+    .container-comics {
 
         display: flex;
         flex-flow: column nowrap;
         position: relative;
         padding: 30px 5px 20px 5px;
 
-        #current {
+        .current {
             display: inline-block;
             padding: 7px 16px;
             background-color: #0282f9;
@@ -122,7 +122,7 @@ main {
         }
 
 
-        #load {
+        .load {
             display: inline-block;
             padding: 8px 35px;
             background-color: #0282f9;
@@ -171,6 +171,20 @@ main {
 
     }
 }
+
+
+
+// sezione show.blade (pagina che mostra il singolo fumetto) ---------------------------------
+.my-text {
+    text-transform: lowercase;
+}
+
+.show-single-image {
+    height: 500px;
+}
+
+
+// FOOOTER-------------------------------------------
 
 footer {
 

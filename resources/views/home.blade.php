@@ -7,34 +7,11 @@
 
 <main>
 
-    <div class="container" id="container-comics">
+<div class="container container-comics">
 
-        <div id="current">current series</div>
+<a href="{{route('comics.index')}}">Vai alla lista dei fumetti</a>
 
-        <div class="row">
-
-            @foreach ($comics as $item)
-            
-            
-            <div class="single-card col-2">
-                
-                <a href="/description_comic">
-                
-                    <div class="container-img">
-                        <img src="{{$item['thumb']}}" alt="comic">
-                    </div>
-                    
-                    {{$item['title']}}
-                    
-                </a>
-            </div>
-                
-            @endforeach
-        </div>
-
-        <button id="load">LOAD MORE</button>
-        
-    </div>
+</div>
 </main>
     
 @endsection
