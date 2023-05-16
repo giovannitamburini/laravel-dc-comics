@@ -37,7 +37,27 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $formData = $request->all();
+
+        $newComic = new Comic();
+
+        // per utilizzare questo metodo bisogna andare in model e aggiungere un protected $fillable = ['title','description'....]
+        $newComic->fill($formData);
+
+        // $newComic->title = $formData['title'];
+        // $newComic->description = $formData['description'];
+        // $newComic->thumb = $formData['thumb'];
+        // $newComic->price = $formData['price'];
+        // $newComic->series = $formData['series'];
+        // $newComic->sale_date = $formData['sale_date'];
+        // $newComic->type = $formData['type'];
+        // $newComic->artists = $formData['artists'];
+        // $newComic->writers = $formData['writers'];
+
+        $newComic->save();
+
+        return redirect()->route('comics.show', $newComic->id);
     }
 
     /**
