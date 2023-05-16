@@ -1,1 +1,297 @@
 @import '~bootstrap/scss/bootstrap';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+
+    img {
+        height: 100%;
+        align-self: center;
+    }
+
+    ul {
+        display: flex;
+        align-items: stretch;
+        gap: 8px;
+        height: 100%;
+
+        li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            position: relative;
+
+            &.active {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 3px;
+                    background-color: #0c7cec;
+                }
+            }
+
+            &:hover::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 3px;
+                background-color: #0c7cec;
+            }
+
+            a {
+                color: black;
+                text-decoration: none;
+            }
+        }
+    }
+
+    input {
+        border: none;
+        border-bottom: 1px solid #0c7cec;
+        width: auto;
+    }
+}
+
+#jumbotron {
+    width: 100%;
+    height: 250px;
+    background-image: url('../img/jumbotron.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+
+main {
+    background-color: #1c1c1c;
+    text-transform: uppercase;
+
+    #container-comics {
+
+        display: flex;
+        flex-flow: column nowrap;
+        position: relative;
+        padding: 30px 5px 20px 5px;
+
+        #current {
+            display: inline-block;
+            padding: 7px 16px;
+            background-color: #0282f9;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+
+        .single-card {
+            padding-bottom: 20px;
+
+            a {
+                text-decoration: none;
+                color: white;
+
+                .container-img {
+
+                    width: 100%;
+                    aspect-ratio: 1/1;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+
+        #load {
+            display: inline-block;
+            padding: 8px 35px;
+            background-color: #0282f9;
+            border: none;
+            color: white;
+            font-weight: 600;
+            align-self: center;
+            margin-top: 30px;
+        }
+    }
+}
+
+#container-main-links {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: #0282f9;
+
+
+    #main-links {
+        width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+
+            img {
+                height: 32px;
+            }
+
+            &:last-child img {
+                height: 25px;
+            }
+
+            div {
+                text-transform: uppercase;
+            }
+        }
+
+    }
+}
+
+footer {
+
+
+    #footer-background {
+        height: 320px;
+        background-image: url('../img/footer-bg.jpg');
+        background-size: cover;
+        background-position: center;
+
+        #footer-container {
+            position: relative;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+
+            #footer-links {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                padding-top: 20px;
+
+                .footer-link {
+                    padding: 5px 10px;
+
+                    .title-list {
+                        text-transform: uppercase;
+                    }
+
+                    ul {
+                        padding: 1em 0;
+                        color: #959595;
+                        font-size: 0.8em;
+
+                        li {
+                            list-style-type: none;
+                        }
+                    }
+                }
+            }
+
+            #footer-logo {
+                height: 100%;
+                width: 350px;
+                background-image: url('../img/dc-logo-bg.png');
+                background-size: 350px;
+                background-position: center;
+            }
+
+            #cookies {
+                position: absolute;
+                bottom: 20px;
+
+                a {
+                    text-decoration: none;
+                    color: #0282f9;
+                }
+            }
+        }
+    }
+
+    #signup-background {
+        height: 80px;
+        background-color: #303030;
+
+        #signup-container {
+            width: 1000px;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                padding: 9px;
+                color: white;
+                background-color: transparent;
+                border: 2px solid #0282f9;
+                cursor: pointer;
+            }
+
+            #social-container {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+
+                #follow {
+                    color: #0282f9;
+                    font-size: 1.1em;
+                    font-weight: 700;
+                }
+
+                .social {
+                    img {
+                        height: 25px;
+                    }
+                }
+
+
+            }
+        }
+    }
+
+}
+
+
+
+// stilizzazione main 2
+#main-two {
+    background-color: white;
+
+    #container-main-two {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 20px;
+        padding: 20px 0;
+        color: black;
+    }
+}
