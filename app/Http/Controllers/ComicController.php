@@ -100,6 +100,8 @@ class ComicController extends Controller
     {
         // dd($request);
         // dd($comic);
+
+        // prendo i parametri dai campi di input del form in  edit.blade
         $formData = $request->all();
 
         // sintassi per modificare un ogetto del model del database
@@ -110,6 +112,7 @@ class ComicController extends Controller
 
         // dd($comic);
 
+        // redirect alla show.blade
         return redirect()->route('comics.show', $comic->id);
     }
 
@@ -121,6 +124,9 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        // metodo per eliminare il dato dal database
+        $comic->delete();
+
+        return redirect()->route('pastas.index');
     }
 }

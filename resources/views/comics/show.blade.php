@@ -19,7 +19,28 @@
         
         <hr class="mb-2">
 
-        <a class="text-uppercase mb-4" href="{{route('comics.edit', $comic->id)}}">Modifica</a>
+        <div class="row">
+            
+            <div class="col-6">
+                <a class="text-uppercase mb-4" href="{{route('comics.edit', $comic->id)}}">Modifica</a>
+            </div>
+            
+            <div class="col-6">
+
+                <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+
+                    @csrf
+
+                    @method('DELETE')
+
+                    <button class="btn btn-danger" type="submit">Elimina</button>
+                
+                </form>
+
+            </div>
+            
+        </div>
+
 
     </div>
 </main>
