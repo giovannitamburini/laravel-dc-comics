@@ -6,7 +6,7 @@
     <div class="container d-flex flex-column justify-content-center align-items-center gap-2 text-light text-center my-text">
 
         {{-- {{dd($comic)}} --}}
-        <img src="{{$comic->thumb}}" class="show-single-image" alt="comic_thumb">
+        <img src="{{$comic->thumb}}" class="mt-3 show-single-image" alt="comic_thumb">
         
         <h2 class="text-uppercase">{{$comic->title}}</h2>
         <p><strong>trama: </strong>{{$comic->description}}</p>
@@ -17,6 +17,9 @@
         <div><strong>artisti: </strong>{{$comic->artists}}</div>
         <div><strong>scrittori: </strong>{{$comic->writers}}</div>
         
+        <hr class="mb-2">
+
+        <a class="text-uppercase mb-4" href="{{route('comics.edit', $comic->id)}}">Modifica</a>
 
     </div>
 </main>
