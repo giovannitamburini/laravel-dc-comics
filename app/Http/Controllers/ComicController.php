@@ -127,6 +127,6 @@ class ComicController extends Controller
         // metodo per eliminare il dato dal database
         $comic->delete();
 
-        return redirect()->route('pastas.index');
+        return redirect()->route('comics.index');
     }
 }

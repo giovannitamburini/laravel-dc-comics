@@ -27,16 +27,22 @@
             
             <div class="col-6">
 
-                <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                {{-- <form action="{{route('comics.destroy', $comic->id)}}" method="POST"> --}}
+                    
+                    {{-- @csrf --}}
+                    
+                    {{-- @method('DELETE') --}}
+                    
+                    {{-- <button class="btn btn-danger" type="submit">Elimina</button> --}}
 
-                    @csrf
 
-                    @method('DELETE')
-
-                    <button class="btn btn-danger" type="submit">Elimina</button>
+                {{-- </form> --}}
                 
-                </form>
-
+                <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Elimina
+                </button>
+                
+                
             </div>
             
         </div>
@@ -44,5 +50,8 @@
 
     </div>
 </main>
-    
+
 @endsection
+
+@include('comics/modal')
+

@@ -29,6 +29,8 @@ Create poi una rotta per visualizzare la lista di tutti i fumetti recuperati da 
     {{-- collegamento con il contenuto di home.blade.php --}}
     @yield('content')
 
+    {{-- @include('comics/modal') --}}
+
     @include('partials/link_section')
 
     {{-- includo la componente footer --}}
