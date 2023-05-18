@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
@@ -153,7 +154,24 @@ class ComicController extends Controller
     private function validation($request)
     {
 
-        $request->validate([
+        // $request->validate([
+        //     'title' => 'required|max:100',
+        //     'description' => 'required',
+        //     'thumb' => 'required',
+        //     'price' => 'required|max:10',
+        //     'series' => 'required|max:50',
+        //     'sale_date' => 'required|date',
+        //     'type' => 'required|max:50',
+        //     'artists' => 'required',
+        //     'writers' => 'required'
+        // ]);
+
+        // VALIDAZIONE AVANZATA---------
+
+        $formData = $request->all();
+
+        $validator = Validator::make($formData, [
+
             'title' => 'required|max:100',
             'description' => 'required',
             'thumb' => 'required',
@@ -163,6 +181,26 @@ class ComicController extends Controller
             'type' => 'required|max:50',
             'artists' => 'required',
             'writers' => 'required'
-        ]);
+
+        ], [
+
+            'title.required' => 'Devi inserire il titolo',
+            'title.max' => 'Il titolo non deve essere più lungo di 100 caratteri',
+            'description.required' => 'Devi inserire una descrizione',
+            'thumb.required' => 'Devi inserire un link per la immagine',
+            'price.required' => 'Devi inserire un prezzo',
+            'price.max' => 'Il prezzo non deve essere più lungo di 10 caratteri',
+            'series.required' => 'Devi inserire la relativa serie tv',
+            'series.max' => 'La serie non può essere più lunga di 50 caratteri',
+            'sale_date.required' => 'Devi inserire la data di vendita',
+            'sale_date.date' => 'Puoi inserire solo la data in formato YYYY-MM-DD',
+            'type.required' => 'Devi inserire il tipo',
+            'type.max' => 'Il tipo non può essere più lungo di 50 caratteri',
+            'artists.required' => 'Devi inserire almeno un artista',
+            'writers.required' => 'Devi inserire almeno un autore'
+
+        ])->validate();
+
+        return $validator;
     }
 }
