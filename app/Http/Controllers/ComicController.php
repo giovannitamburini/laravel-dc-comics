@@ -38,17 +38,19 @@ class ComicController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'title' => 'required|max:100',
-            'description' => 'required',
-            'thumb' => 'required',
-            'price' => 'required|max:10',
-            'series' => 'required|max:50',
-            'sale_date' => 'required|date',
-            'type' => 'required|max:50',
-            'artists' => 'required',
-            'writers' => 'required'
-        ]);
+        // $request->validate([
+        //     'title' => 'required|max:100',
+        //     'description' => 'required',
+        //     'thumb' => 'required',
+        //     'price' => 'required|max:10',
+        //     'series' => 'required|max:50',
+        //     'sale_date' => 'required|date',
+        //     'type' => 'required|max:50',
+        //     'artists' => 'required',
+        //     'writers' => 'required'
+        // ]);
+
+        $this->validation($request);
 
 
         // dd($request->all());
@@ -112,6 +114,9 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+
+        $this->validation($request);
+
         // dd($request);
         // dd($comic);
 
@@ -142,5 +147,22 @@ class ComicController extends Controller
         $comic->delete();
 
         return redirect()->route('comics.index');
+    }
+
+
+    private function validation($request)
+    {
+
+        $request->validate([
+            'title' => 'required|max:100',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required|max:10',
+            'series' => 'required|max:50',
+            'sale_date' => 'required|date',
+            'type' => 'required|max:50',
+            'artists' => 'required',
+            'writers' => 'required'
+        ]);
     }
 }
